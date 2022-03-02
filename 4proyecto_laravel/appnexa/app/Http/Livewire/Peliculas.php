@@ -16,7 +16,7 @@ class Peliculas extends Component
 
     public function render()
     {
-        $this->peliculas = Pelicula::all();
+        $this->peliculas = Pelicula::where('user_id',Auth::user()->id)->where('estado',1)->get();
         return view('livewire.peliculas');
     }
 
@@ -55,13 +55,17 @@ class Peliculas extends Component
         $this->anio = $pelicula->anio;
         $this->genero = $pelicula->genero;
         $this->clasificacion = $pelicula->clasificacion;
+        $this->imagen = $pelicula->imagen;
         $this->abrirModal();
 
     }
 
     public function borrar($id)
     {
-        Pelicula::find($id)->delete();
+        $pelicula = Pelicula::find($id);
+        $pelicula->estado = 0;
+        $pelicula->save();
+
         session()->flash('message','Registro eliminado correctamente');
 
     }
@@ -74,6 +78,7 @@ class Peliculas extends Component
             'anio' => $this->anio,
             'clasificacion' => $this->clasificacion,
             'genero' => $this->genero,
+            'imagen' => $this->imagen,
             'estado' => 1,
             'user_id' => Auth::user()->id
         ]);
@@ -101,9 +106,8 @@ class Peliculas extends Component
         $this->anio = $response->body->Year;
         $this->genero = $response->body->Genre;
         $this->clasificacion = $response->body->Rated;
+        $this->imagen = $response->body->Poster;
         $this->abrirModal();
-
-        
     }
 
 

@@ -41,7 +41,7 @@
                         <td class="border px-4 py-2">{{$pel->anio}}</td>
                         <td class="border px-4 py-2">{{$pel->genero}}</td>
                         <td class="border px-4 py-2 text-center">
-                            <button wire:click="editar({{$pel->id}})" class="bg-blue-500 hover:bg-blue-600 text-black font-bold py-2 px-4">Editar</button>
+                            <button wire:click="editar({{$pel->id}})" class="bg-blue-500 hover:bg-blue-600 text-black font-bold py-2 px-4">Ver/Editar</button>
                             <button wire:click="borrar({{$pel->id}})" class="bg-red-500 hover:bg-red-600 text-black font-bold py-2 px-4">Borrar</button>
                         </td>
                     </tr>

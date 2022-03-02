@@ -26,6 +26,12 @@
                         <label for="genero" class="block text-gray-700 text-sm font-bold mb-2">Género</label>
                         <input type="text" class="shadow appearance-none border rounded w-full py-x px-3 text-gray-700 leading-tight focus:outile-none focus:shadow-outline" id="genero" wire:model="genero">
                     </div>
+                    <div class="mb-4">
+                        <label for="imagen" class="block text-gray-700 text-sm font-bold mb-2">URL Imagen</label>
+                        <input type="text" class="shadow appearance-none border rounded w-full py-x px-3 text-gray-700 leading-tight focus:outile-none focus:shadow-outline" id="imagen" wire:model="imagen">
+                        <br>
+                        <img src="{{$this->imagen}}" width="100px" id="imagen" alt="imagen">
+                    </div>
 
                     <div class="bg-gray-50 px-4 py-3 sm:px-6 xm:flex sm:flex-row-reverse">
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
